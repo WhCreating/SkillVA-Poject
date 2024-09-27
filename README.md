@@ -7,6 +7,5 @@
 # Update
 beta-v-0.0.1-design 
   
-   Update:
-  
-   • None
+   Update:  
+    • None
