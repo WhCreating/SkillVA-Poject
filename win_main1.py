@@ -9,6 +9,8 @@ from win_main2 import Window2
 from time import sleep
 import webbrowser
 import toml
+import asyncio
+import llama
 
 press_btn = False
 class Window(QMainWindow):
@@ -57,6 +59,10 @@ class Window(QMainWindow):
         self.ui.title_text.linkActivated.connect(self.open_url)
         self.ui.title_text.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         
+        #Обработка ответа на promt
+        #global promt
+        #promt = asyncio.run(llama.chat('Привет'))
+        
         
     def open_url(self):
         webbrowser.open_new('http:/vaskill.rf.gd')
@@ -74,13 +80,14 @@ class Window(QMainWindow):
             self.ui.btn_play.setIcon(icon_play)
             press_btn = True
             print(press_btn)
+            #self.ui.label_4.setText(promt)
         elif press_btn == True:
             icon_play1 = QtGui.QIcon()
             icon_play1.addPixmap(QtGui.QPixmap(path.join(parent_dir, 'texture', 'icon_play1.png')))
             self.ui.btn_play.setIcon(icon_play1)
             press_btn = False
             print(press_btn)
-        
+            
         
 if __name__ == '__main__':
     import sys

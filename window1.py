@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
 "}")
         self.title_text.setObjectName("title_text")
         self.btn_play = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_play.setGeometry(QtCore.QRect(150, 260, 81, 81))
+        self.btn_play.setGeometry(QtCore.QRect(150, 330, 81, 81))
         self.btn_play.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_play.setStyleSheet("QPushButton {\n"
 "border: 1px solid \'black\';\n"
@@ -83,13 +83,15 @@ class Ui_MainWindow(object):
         self.btn_play.setFlat(True)
         self.btn_play.setObjectName("btn_play")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(70, 400, 231, 41))
+        self.label_2.setGeometry(QtCore.QRect(70, 430, 231, 41))
         self.label_2.setStyleSheet("color: rgb(255, 0, 0);\n"
-"font: 12pt \"Segoe Fluent Icons\";")
+"font: 12pt \"Segoe Fluent Icons\";\n"
+"background: none;")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(10, 370, 371, 41))
+        self.label_3.setGeometry(QtCore.QRect(10, 410, 371, 41))
         self.label_3.setStyleSheet("color: rgb(255, 0, 0);\n"
+"background: none;\n"
 "font: 12pt \"Segoe Fluent Icons\";")
         self.label_3.setObjectName("label_3")
         self.btn_settings = QtWidgets.QPushButton(self.centralwidget)
@@ -132,6 +134,19 @@ class Ui_MainWindow(object):
 "background: none;")
         self.title_text_2.setIndent(-1)
         self.title_text_2.setObjectName("title_text_2")
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(40, 160, 311, 31))
+        font = QtGui.QFont()
+        font.setFamily("TT Trailers Trial")
+        font.setPointSize(19)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_4.setFont(font)
+        self.label_4.setCursor(QtGui.QCursor(QtCore.Qt.SizeHorCursor))
+        self.label_4.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_4.setScaledContents(True)
+        self.label_4.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextSelectableByMouse)
+        self.label_4.setObjectName("label_4")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -145,6 +160,7 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Если вы ещё этого не сделали."))
         self.label_3.setText(_translate("MainWindow", "Просьба ознакомиться с настройками ассистента!"))
         self.title_text_2.setText(_translate("MainWindow", "PROJECT"))
+        self.label_4.setText(_translate("MainWindow", "Ответ:"))
 
 
 if __name__ == "__main__":

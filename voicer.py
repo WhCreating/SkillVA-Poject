@@ -21,10 +21,10 @@ def recording(models, micro: int):
 
 			
 	for text in listen():
-		print(text)
+		return text
 
 
 
 
 if __name__=="__main__":
-	recording('C:\\VASKILL\\venv\\models\\small_model_ru', 2)
+	print(recording('C:\\skillva\\skillva\\models\\small_model_ru', 2))
