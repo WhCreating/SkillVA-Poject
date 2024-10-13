@@ -17,13 +17,25 @@ class Window(QMainWindow):
     def __init__(self):
         super().__init__()
         
-        
-        
         #Наследование
         
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
+        #проверка
+        parent_dir = path.dirname(path.abspath(__file__))
+        with open(path.join(parent_dir, 'settings', 'config.ini'), 'r') as f:
+            confss = toml.load(f)
+            
+            if confss['theme'] == 0:
+                self.setStyleSheet("background-color: \'black\';\n""\n""")
+                self.ui.title_text_2.setStyleSheet("color: \'white\';\n""background: none;")
+                self.ui.label_4.setStyleSheet("color: \'white\';\n""background: none;")
+            else :
+                self.setStyleSheet("background-color: \'white\';\n""\n""")
+                self.ui.title_text_2.setStyleSheet("color: \'black\';\n""background: none;")
+                self.ui.label_4.setStyleSheet("color: \'black\';\n""background: none;")
+                
         #Импорт иконок:
         #TitleWin
         

@@ -8,6 +8,7 @@ from info_micro import list_microphones
 import toml
 
 
+
 class Window2(QMainWindow, QDialog):
     
     def __init__(self, parent=None):
@@ -18,6 +19,46 @@ class Window2(QMainWindow, QDialog):
         self.ui.setupUi(self)
         global parent_dir
         parent_dir = path.dirname(path.abspath(__file__))
+        
+        #проверки
+        
+        parent_dir = path.dirname(path.abspath(__file__))
+        with open(path.join(parent_dir, 'settings', 'config.ini'), 'r') as f:
+            confss = toml.load(f)
+            
+            if confss['theme'] == 0:
+                self.setStyleSheet("background-color: \'black\';\n""\n""")
+                self.ui.title_text_2.setStyleSheet("color: \'white\';\n""background: none;")
+                self.ui.pushButton.setStyleSheet("QPushButton{\n"
+"    color: 'white';\n"
+"    font: 23pt \"Bulatov SP Demo\";\n"
+"    border: 1px solid \'black\';\n"
+"    border-radius:10px;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    border-color: rgb(255, 255, 255);\n"
+"    background-color: 'black';\n"
+"}\n"
+"")
+                self.ui.comboBox_2.setStyleSheet("color: 'white';")
+            else :
+                self.setStyleSheet("background-color: \'white\';\n""\n""")
+                self.ui.title_text_2.setStyleSheet("color: \'black\';\n""background: none;")
+                self.ui.pushButton.setStyleSheet("QPushButton{\n"
+"    color: 'black';\n"
+"    font: 23pt \"Bulatov SP Demo\";\n"
+"    border: 1px solid \'black\';\n"
+"    border-radius:10px;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    border-color: rgb(255, 255, 255);\n"
+"    background-color: 'white';\n"
+"}\n"
+"")
+                self.ui.comboBox_2.setStyleSheet("color: 'black';")
+        
         
         #Загрузка настроек
         
@@ -79,6 +120,11 @@ class Window2(QMainWindow, QDialog):
         #pushbutton
         self.ui.pushButton.clicked.connect(self.clicks_used)
         self.ui.lineEdit_2.setText(config['model'])
+        #line_edit 
+        #event window
+        
+
+        
         
     def change_micro(self, value):
         config['micro'] = value
@@ -91,6 +137,7 @@ class Window2(QMainWindow, QDialog):
         print(config)
         with open(path.join(parent_dir, 'settings', 'config.ini'), 'w') as f:
             confs = toml.dump(config, f)
+        
         
 #Выбор категории
     def action_click(self):
