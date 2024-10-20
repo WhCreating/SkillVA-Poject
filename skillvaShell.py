@@ -2,8 +2,9 @@ import llama
 import synthesis
 import voicer
 import asyncio
+from config import conf
 
-def shell(model='C:\skillva\skillva\models\model_ru', micros=2):  
+def shell(model='C:\skillva\skillva\models\small_model_ru', micros=2):  
     while True:
         c = voicer.recording(model, micros)
         print(c)
@@ -12,7 +13,13 @@ def shell(model='C:\skillva\skillva\models\model_ru', micros=2):
             synthesis.synthes(b)
             print(b)
         else :
-            synthesis.synthes("Укажите голосовую команду!")
+            c = c.split()
+            c.append('')
+            
+            if c[0] in conf:
+                conf[c[0]][c[1]]()
+            else :
+                synthesis.synthes('Такой команды нет!')
     
     
 if __name__ == '__main__':
